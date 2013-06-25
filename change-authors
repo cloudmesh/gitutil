@@ -12,3 +12,15 @@ then
     GIT_COMMITTER_EMAIL="pnewaska@indiana.edu";
 fi
 ' -- --all
+
+#
+# Any of the 4 variables could be used to form a condition to find matches from the history
+# And once a match is found, any of the 4 variables could be reset the value
+# After the change, do a 
+# git push --force
+# And then notify all users do a pull from the modified repo
+#
+# Note: This seems not working if the repo has tags.
+# Possibly a '--tag-name-filter cat' is needed somewhere. NEED TO CONFIRM THIS.
+#
+# ref: http://git-scm.com/book/en/Git-Tools-Rewriting-History
