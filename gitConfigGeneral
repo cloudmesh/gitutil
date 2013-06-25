@@ -1,0 +1,30 @@
+The git config Command
+
+The git config command lets you configure your Git installation (or an individual repository) from the command line. This command can define everything from user info to preferences to the behavior of a repository. Several common configuration options are listed below.
+Usage
+
+git config user.name <name>
+
+Define the author name to be used for all commits in the current repository. Typically, you’ll want to use the --global flag to set configuration options for the current user.
+
+git config --global user.name <name>
+
+Define the author name to be used for all commits by the current user.
+
+git config --global user.email <email>
+
+Define the author email to be used for all commits by the current user.
+
+git config --global alias.<alias-name> <git-command>
+
+Create a shortcut for a Git command.
+
+git config --system core.editor <editor>
+
+Define the text editor used by commands like git commit for all users on the current machine. The <editor> argument should be the command that launches the desired editor (e.g., vi).
+
+git config --global --edit
+
+Open the global configuration file in a text editor for manual editing.
+
+ref: http://www.atlassian.com/git/tutorial/git-basics#!config
