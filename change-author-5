@@ -1,0 +1,8 @@
+git filter-branch --force --env-filter '
+    if [ "$GIT_AUTHOR_NAME" = "Your Name Herecd" ] || [ "$GIT_COMMITTER_NAME" = "Your Name Herecd" ];
+    then
+        GIT_COMMITTER_NAME="Gregor von Laszewski";
+        GIT_COMMITTER_EMAIL="laszewski@gmail.com";
+        GIT_AUTHOR_NAME="Gregor von Laszewski";
+        GIT_AUTHOR_EMAIL="laszewski@gmail.com";
+    fi' -- --all
