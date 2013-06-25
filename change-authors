@@ -1,0 +1,14 @@
+#!/bin/bash
+
+git filter-branch --env-filter '
+if [ "$GIT_AUTHOR_NAME" = "meao" ];
+then
+    GIT_AUTHOR_NAME="ppnewaskar";
+    GIT_AUTHOR_EMAIL="pnewaska@indiana.edu";
+fi
+if [ "$GIT_COMMITTER_NAME" = "meao" ];
+then
+    GIT_COMMITTER_NAME="ppnewaskar";
+    GIT_COMMITTER_EMAIL="pnewaska@indiana.edu";
+fi
+' -- --all
