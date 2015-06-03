@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+usage() {
+    cat <<EOF >&2
+Usage: $0 <PATH>
+
+This will COMPLETELY REMOVE <PATH> from the git repsitory.
+This is UNSAFE. Be sure you know what you are doing.
+EOF
+}
+
+usage-quit() {
+    usage
+    exit 1
+}
+
+
+if [ ! $# -eq 1 ]; then
+    usage-quit
+elif [ ! -e "$1" ]; then
+    usage-quit
+fi
+
+
+path="$1"
+
+gitExtraArgs=
+
+if [ -d "$path" ]; then
+    gitExtraArgs="-r"
+elif [ -f "$path" ]; then
+    gitExtraArgs=
+else
+    echo "ERROR: I don't know how to handle $path" >&2
+    exit 1
+fi
+
+
+set -e  # bork on failure
+set -x  # trace commands
+
+git filter-branch \
+    --force \
+    --index-filter "git rm $gitExtraArgs --cached --ignore-unmatch \"$path\"" \
+    --prune-empty \
+    --tag-name-filter cat \
+    -- --all
+
