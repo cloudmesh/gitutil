@@ -1,3 +1,5 @@
+## DEPRECATED. See gitNukePath
+
 First, change any password if they had been committed
 
 Then, remove the data/file from all history:
