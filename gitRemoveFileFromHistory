@@ -10,4 +10,8 @@ git filter-branch --force --index-filter \
 Last, add the file to gitignore to avoid further accidental commit
 echo "Rakefile" >> .gitignore
 
+Make the changes back to github:
+git push origin --force --all
+git push origin --force --tags
+
 ref: https://help.github.com/articles/remove-sensitive-data
